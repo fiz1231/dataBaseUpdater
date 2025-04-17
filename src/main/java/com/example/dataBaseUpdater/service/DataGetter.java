@@ -3,7 +3,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Example;
+
 import com.example.dataBaseUpdater.dao.DataDao;
 import com.example.dataBaseUpdater.entity.Data;
 import com.example.dataBaseUpdater.mapper.DataMapper;

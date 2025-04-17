@@ -8,6 +8,7 @@ public class DataBaseUpdaterApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DataBaseUpdaterApplication.class, args);
+		
 	}
 
 }

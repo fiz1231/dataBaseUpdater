@@ -21,8 +21,11 @@ public class DataAdder {
 
     @Transactional
     Data addData(DataDao dataDao){
+        
         Data mapped =DataMapper.mapDataDaotoData(dataDao);
+        
         dataRepository.save(mapped);
+       
         return mapped;
     }
 }

@@ -1,6 +1,6 @@
 package com.example.dataBaseUpdater.Updater;
 
-import org.springframework.beans.factory.annotation.Configurable;
+
 
 import com.example.dataBaseUpdater.dao.Country;
 import com.example.dataBaseUpdater.dao.CountryAndBak;
@@ -12,28 +12,40 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
+
 import java.net.URL;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
-
+@Configuration
+@EnableScheduling
 @AllArgsConstructor
 public class Updater {
     private final Facade dataFacade;
     
     private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    public void update(String[] args) throws Exception {
+    //Updating database every 30 days from start service
+    
+    @Scheduled(fixedDelay = 30,timeUnit=TimeUnit.DAYS)
+    @EventListener(ApplicationReadyEvent.class)
+    public void update() throws Exception {
  
         
        
