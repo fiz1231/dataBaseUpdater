@@ -6,5 +6,4 @@ This microservice works together with remitly2 repository project as part of one
 This operation will be executed every time service starts running and every 30 days after that. 
 
 ## How to Install and Run 
-Downola Project and unpack.
-Use Spring Boot to run application. You can use Visual Studio Code with Spring Boot Dashboard for VS Code extension or navigate to the root of the project via command line and execute the command mvn spring-boot:run.I presume you have maven installed and correctly added maven to your environment variable.
+Downolad project and unpack. Use Spring Boot to run application. You can use Visual Studio Code with Spring Boot Dashboard for VS Code extension or navigate to the root of the project via command line and execute the command mvn spring-boot:run.I presume you have maven installed and correctly added maven to your environment variable. Make sure that to set application port to run(default 8002), database password, username and url in src/main/resources/applicatiion.properties. Tables will be created automatically.
